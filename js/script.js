@@ -11,18 +11,10 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  /* ---------- footer year ---------- */
   const yearEl = document.querySelector("[data-year]");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  /* ---------------------------------------------------------------
-     Missing-image fallback.
-     Every photo on the site is referenced by filename only — drop
-     the real files into /images using the same names and they'll
-     appear automatically. Until then, this swaps a broken <img>
-     for a small placeholder panel that names the file it's
-     expecting, so it's obvious what to add.
-  ------------------------------------------------------------------ */
+
   document.querySelectorAll("img").forEach((img) => {
     img.addEventListener("error", () => {
       if (img.dataset.fallbackApplied) return;
@@ -40,7 +32,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  /* ---------- contact form ---------- */
   const form = document.querySelector("#contact-form");
   if (form) {
     form.addEventListener("submit", async (e) => {

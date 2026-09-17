@@ -1,17 +1,6 @@
-/**
- * Cloudflare Pages Function — POST /api/contact
- *
- * Cloudflare auto-detects this file because it lives under /functions.
- * It reads the contact form's fields, then sends an email through
- * MailChannels, which is free for any site hosted on Cloudflare and
- * needs no separate account or API key.
- *
- * ---------------------------------------------------------------
- * BEFORE THIS WORKS, edit the two constants right below:
- * ---------------------------------------------------------------
- */
-const TO_EMAIL = "your-inbox@example.com";      // where messages should land
-const FROM_EMAIL = "contact-form@example.com";  // must be on a domain you control (see README)
+
+const TO_EMAIL = "glasserelliot@gmail.com";      
+const FROM_EMAIL = "contact-form@example.com";  
 
 export async function onRequestPost({ request }) {
   try {

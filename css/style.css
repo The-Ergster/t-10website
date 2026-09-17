@@ -1,9 +1,4 @@
-/* =============================================================
-   T-10 ROBOTICS — stylesheet
-   Design system: blueprint / schematic. Dark navy + graph-paper
-   panels, hairline borders, orange annotation brackets instead
-   of shadows, one accent color.
-   ============================================================= */
+
 
 :root {
   /* color */
@@ -14,8 +9,8 @@
   --ink: #14202E;
   --steel: #5C6B78;
   --steel-30: rgba(92, 107, 120, 0.35);
-  --orange: #E8551D;
-  --orange-dim: #C24513;
+  --yellow: #dee81d;
+  --yellow-dim: #c2b613;
   --white: #F7F9F8;
   --grid-line-dark: rgba(255, 255, 255, 0.055);
   --grid-line-light: rgba(14, 26, 43, 0.06);
@@ -55,7 +50,7 @@ h3 { font-size: 1.15rem; }
 p { margin: 0 0 1em; max-width: 62ch; }
 
 a {
-  color: var(--orange);
+  color: var(--yellow);
   text-decoration: none;
 }
 a:hover { text-decoration: underline; }
@@ -69,11 +64,10 @@ img { max-width: 100%; display: block; }
 }
 
 :focus-visible {
-  outline: 2px solid var(--orange);
+  outline: 2px solid var(--yellow);
   outline-offset: 3px;
 }
 
-/* -------------------------------------------------- nav -------- */
 .site-header {
   position: sticky;
   top: 0;
@@ -107,8 +101,8 @@ img { max-width: 100%; display: block; }
 .brand-tag {
   font-family: var(--font-mono);
   font-size: 0.7rem;
-  color: var(--orange);
-  border: 1px solid var(--orange);
+  color: var(--yellow);
+  border: 1px solid var(--yellow);
   padding: 0.1em 0.4em;
   margin-left: 0.35rem;
   border-radius: 2px;
@@ -137,7 +131,7 @@ img { max-width: 100%; display: block; }
   position: absolute;
   left: 0; right: 0; bottom: -0.5rem;
   height: 2px;
-  background: var(--orange);
+  background: var(--yellow);
 }
 
 .nav-toggle {
@@ -178,10 +172,9 @@ img { max-width: 100%; display: block; }
     padding: 0.75rem var(--gutter);
   }
   .nav-links a[aria-current="page"]::after { display: none; }
-  .nav-links a[aria-current="page"] { border-left: 2px solid var(--orange); padding-left: calc(var(--gutter) - 2px); }
+  .nav-links a[aria-current="page"] { border-left: 2px solid var(--yellow); padding-left: calc(var(--gutter) - 2px); }
 }
 
-/* -------------------------------------------------- hero -------- */
 .hero {
   background: var(--navy);
   color: var(--white);
@@ -212,7 +205,7 @@ img { max-width: 100%; display: block; }
 .hero-eyebrow {
   font-family: var(--font-mono);
   font-size: 0.8rem;
-  color: var(--orange);
+  color: var(--yellow);
   margin-bottom: 0.9rem;
 }
 
@@ -234,7 +227,6 @@ img { max-width: 100%; display: block; }
   .hero-figure { justify-self: start; max-width: 220px; }
 }
 
-/* -------------------------------------------------- buttons ----- */
 .btn {
   display: inline-block;
   font-family: var(--font-body);
@@ -248,10 +240,10 @@ img { max-width: 100%; display: block; }
 .btn:hover { text-decoration: none; }
 
 .btn-primary {
-  background: var(--orange);
+  background: var(--yellow);
   color: var(--white);
 }
-.btn-primary:hover { background: var(--orange-dim); }
+.btn-primary:hover { background: var(--yellow-dim); }
 
 .btn-ghost {
   background: transparent;
@@ -260,7 +252,6 @@ img { max-width: 100%; display: block; }
 }
 .btn-ghost:hover { border-color: var(--white); background: rgba(255,255,255,0.06); }
 
-/* -------------------------------------------------- sections ---- */
 .section {
   padding: 4rem 0;
 }
@@ -277,7 +268,6 @@ img { max-width: 100%; display: block; }
 .section-head { margin-bottom: 2.2rem; max-width: 60ch; }
 .section-head p { color: inherit; opacity: 0.85; }
 
-/* panel: hairline border + orange schematic corner brackets */
 .panel {
   position: relative;
   border: 1px solid var(--steel-30);
@@ -293,7 +283,7 @@ img { max-width: 100%; display: block; }
   position: absolute;
   width: 12px;
   height: 12px;
-  border: 2px solid var(--orange);
+  border: 2px solid var(--yellow);
   pointer-events: none;
 }
 .panel::before { top: -1px; left: -1px; border-right: none; border-bottom: none; }
@@ -302,7 +292,7 @@ img { max-width: 100%; display: block; }
 .panel-label {
   font-family: var(--font-mono);
   font-size: 0.72rem;
-  color: var(--orange);
+  color: var(--yellow);
   margin-bottom: 0.6rem;
   display: block;
 }
@@ -321,7 +311,6 @@ img { max-width: 100%; display: block; }
   .grid-2, .grid-3 { grid-template-columns: 1fr; }
 }
 
-/* -------------------------------------------------- sibling teams */
 .sibling-card {
   display: flex;
   gap: 1.1rem;
@@ -337,7 +326,6 @@ img { max-width: 100%; display: block; }
 }
 .sibling-card .sibling-name { font-family: var(--font-display); font-weight: 600; }
 
-/* -------------------------------------------------- org chart --- */
 .org-chart {
   display: flex;
   flex-direction: column;
@@ -358,7 +346,7 @@ img { max-width: 100%; display: block; }
 .org-node .role {
   font-family: var(--font-mono);
   font-size: 0.72rem;
-  color: var(--orange);
+  color: var(--yellow);
   display: block;
   margin-bottom: 0.15rem;
 }
@@ -429,7 +417,6 @@ img { max-width: 100%; display: block; }
   .member-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
-/* -------------------------------------------------- outreach ---- */
 .event-card {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -451,7 +438,6 @@ img { max-width: 100%; display: block; }
   .event-card:nth-child(even) .event-media { order: 0; }
 }
 
-/* -------------------------------------------------- videos ------- */
 .video-card { display: block; }
 .video-thumb {
   position: relative;
@@ -478,7 +464,6 @@ img { max-width: 100%; display: block; }
 .video-caption .name { color: var(--white); font-weight: 600; }
 .video-caption .sub { font-family: var(--font-mono); font-size: 0.72rem; color: var(--steel); }
 
-/* -------------------------------------------------- contact ------ */
 .contact-grid {
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
@@ -517,7 +502,7 @@ input[type="text"], input[type="email"], textarea {
   background: var(--white);
   color: var(--ink);
 }
-input:focus, textarea:focus { outline: 2px solid var(--orange); outline-offset: 0; border-color: var(--orange); }
+input:focus, textarea:focus { outline: 2px solid var(--yellow); outline-offset: 0; border-color: var(--yellow); }
 textarea { min-height: 120px; resize: vertical; }
 
 .form-note {
@@ -530,10 +515,9 @@ textarea { min-height: 120px; resize: vertical; }
 .roster-contact { list-style: none; margin: 0; padding: 0; }
 .roster-contact li { padding: 0.9rem 0; border-bottom: 1px solid var(--steel-30); }
 .roster-contact li:first-child { padding-top: 0; }
-.roster-contact .role { font-family: var(--font-mono); font-size: 0.72rem; color: var(--orange); display: block; margin-bottom: 0.2rem; }
+.roster-contact .role { font-family: var(--font-mono); font-size: 0.72rem; color: var(--yellow); display: block; margin-bottom: 0.2rem; }
 .roster-contact .who { font-weight: 600; }
 
-/* -------------------------------------------------- image fallback */
 .img-missing {
   display: flex;
   align-items: center;
@@ -553,7 +537,6 @@ textarea { min-height: 120px; resize: vertical; }
   padding: 0.5rem;
 }
 
-/* -------------------------------------------------- footer ------ */
 .site-footer {
   background: var(--navy);
   color: var(--steel);

@@ -1,8 +1,116 @@
-<html>
-  <head>
-    <title>DO NOT CONTACT US</title>
-  </head>
-  <body>
-    <p>Contact us. You can contact us. You must contact us. Contact us. Talk to us. Get to know us. We will get to know you. We will become one.</p>
-  </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — T-10 Robotics</title>
+<link rel="icon" href="images/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="images/favicon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="index.html" class="brand">
+      <img src="images/logo.png" alt="T-10 Robotics logo" class="brand-mark">
+      T-10 Robotics
+    </a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="team.html">Our team</a></li>
+      <li><a href="outreach.html">Outreach</a></li>
+      <li><a href="contact.html" aria-current="page">Contact</a></li>
+      <li><a href="videos.html">Videos</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero hero-compact">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-eyebrow">Reach us</div>
+      <h1>Contact us</h1>
+      <p class="hero-lede">Questions about the team, sponsorship, or outreach? Send us a note.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="contact-grid">
+
+      <div>
+        <div class="panel">
+          <span class="panel-label">Send a message</span>
+          <form id="contact-form" method="POST" action="/api/contact" novalidate>
+            <div class="field-row">
+              <div class="field">
+                <label for="fname">First name</label>
+                <input type="text" id="fname" name="fname" required>
+              </div>
+              <div class="field">
+                <label for="lname">Last name</label>
+                <input type="text" id="lname" name="lname" required>
+              </div>
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+            <div class="field">
+              <label for="comment">Comment</label>
+              <textarea id="comment" name="comment" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <p class="form-note"></p>
+          </form>
+        </div>
+      </div>
+
+      <div>
+        <div class="panel" style="padding:0; overflow:hidden;">
+          <iframe class="map-frame" style="border:0;"
+            src="https://www.google.com/maps?q=Needham+High+School,609+Webster+St,Needham,MA+02494&output=embed"
+            loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            title="Map to Needham High School"></iframe>
+        </div>
+        <p class="address">Needham High School<br>609 Webster St<br>Needham, MA 02494</p>
+
+        <ul class="roster-contact" style="margin-top:2rem;">
+          <li>
+            <span class="role">Advisor</span>
+            <span class="who">Mr. Barra</span>
+          </li>
+          <li>
+            <span class="role">Club President</span>
+            <span class="who">Kiara</span>
+          </li>
+          <li>
+            <span class="role">T-10 Project Manager</span>
+            <span class="who">Ron Ozeri</span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <span class="footer-brand">T-10 ROBOTICS · NEEDHAM HIGH SCHOOL</span>
+    <a href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
 </html>

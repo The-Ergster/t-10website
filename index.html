@@ -1,10 +1,135 @@
-<html>
-  <head>
-    <title>wawa</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="main.js"></script>
-  </head>
-  <body>
-    <div></div>
-  </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>T-10 Robotics — Needham High School</title>
+<meta name="description" content="T-10 is the Varsity FIRST Tech Challenge robotics team at Needham High School.">
+<link rel="icon" href="images/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="images/favicon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="index.html" class="brand">
+      <img src="images/logo.png" alt="T-10 Robotics logo" class="brand-mark">
+      T-10 Robotics
+    </a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="index.html" aria-current="page">Home</a></li>
+      <li><a href="team.html">Our team</a></li>
+      <li><a href="outreach.html">Outreach</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="videos.html">Videos</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-eyebrow">FIRST Tech Challenge · Needham High School</div>
+      <h1>T-10 Robotics</h1>
+      <p class="hero-lede">T-10 is the Varsity robotics team at Needham High School. We meet Tuesdays and Thursdays, four hours a week, all school year — building, coding, and documenting a competition robot from the ground up through FIRST Tech Challenge.</p>
+      <div class="hero-actions">
+        <a href="team.html" class="btn btn-primary">Meet the team</a>
+        <a href="contact.html" class="btn btn-ghost">Get in touch</a>
+      </div>
+    </div>
+    <div class="hero-figure" aria-hidden="true">
+      <svg viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg">
+        <g class="spin">
+          <circle cx="110" cy="110" r="58" stroke="#E8551D" stroke-width="3" fill="none"/>
+          <circle cx="110" cy="110" r="16" stroke="#F7F9F8" stroke-width="2" fill="none"/>
+          <g fill="#E8551D">
+            <rect x="103" y="38" width="14" height="16"/>
+            <rect x="103" y="166" width="14" height="16"/>
+            <rect x="38" y="103" width="16" height="14"/>
+            <rect x="166" y="103" width="16" height="14"/>
+            <rect x="55" y="55" width="13" height="13" transform="rotate(45 61.5 61.5)"/>
+            <rect x="152" y="55" width="13" height="13" transform="rotate(45 158.5 61.5)"/>
+            <rect x="55" y="152" width="13" height="13" transform="rotate(45 61.5 158.5)"/>
+            <rect x="152" y="152" width="13" height="13" transform="rotate(45 158.5 158.5)"/>
+          </g>
+        </g>
+        <g stroke="#F7F9F8" stroke-width="1.4" opacity="0.55">
+          <path d="M110 26 V4 H188" fill="none"/>
+          <path d="M198 4 h10" />
+        </g>
+        <circle cx="188" cy="4" r="3.5" fill="#F7F9F8" opacity="0.55"/>
+        <g stroke="#F7F9F8" stroke-width="1.4" opacity="0.55">
+          <path d="M110 194 V216 H30" fill="none"/>
+        </g>
+        <circle cx="30" cy="216" r="3.5" fill="#F7F9F8" opacity="0.55"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="panel-label" style="display:none"></span>
+      <h2>Who we are</h2>
+    </div>
+    <div class="panel">
+      <p>T-10 is the Varsity robotics team at Needham High School. The club operates all year during the school year, meeting Tuesdays and Thursdays for four hours per week. We're dedicated to fostering STEM education through the <strong>FIRST Tech Challenge (FTC)</strong> program — a year-long robotics program that combines engineering, coding, documentation, professionalism, and outreach to prepare students to be future STEM leaders.</p>
+    </div>
+
+    <div class="grid-2" style="margin-top:1.5rem;">
+      <div class="panel">
+        <span class="panel-label">Mission statement</span>
+        <p>To empower high school students to pursue STEM by developing problem-solving, collaboration, and real-world skills through competitive robotics.</p>
+      </div>
+      <div class="panel">
+        <span class="panel-label">Our goals</span>
+        <p>Offer all high school students the free opportunity to explore their STEM passions while building competitive, successful FTC teams within the Needham Robotics Club.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-dark">
+  <div class="container">
+    <div class="section-head">
+      <h2>Sibling teams</h2>
+      <p>Needham Robotics Club runs three FTC teams side by side. Here's who else is in the building with us.</p>
+    </div>
+    <div class="grid-2">
+      <div class="panel sibling-card">
+        <img src="images/sibling-lo2.png" alt="LO2 team logo">
+        <div>
+          <span class="sibling-name">LO2</span>
+          <p style="margin:0; color:var(--paper-2); opacity:0.85; font-size:0.92rem;">Needham High School FTC team.</p>
+        </div>
+      </div>
+      <div class="panel sibling-card">
+        <img src="images/sibling-hackhers.png" alt="HackHers team logo">
+        <div>
+          <span class="sibling-name">HackHers · 5897</span>
+          <p style="margin:0; color:var(--paper-2); opacity:0.85; font-size:0.92rem;">Needham High School FTC team.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <span class="footer-brand">T-10 ROBOTICS · NEEDHAM HIGH SCHOOL · EST. FTC PROGRAM</span>
+    <a href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
 </html>

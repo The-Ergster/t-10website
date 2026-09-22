@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll(".carousel").forEach((el) => initCarousel(el));
 });
 
-const CAROUSEL_INTERVAL_MS = 4000;
+const CAROUSEL_INTERVAL_MS = 10000;
 
 async function initCarousel(el) {
   const folder = el.dataset.folder;

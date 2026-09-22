@@ -1,9 +1,17 @@
 
+/*
+  Cloudflare Pages function for the website contact form.
+
+  It reads the form fields, validates them, and sends the message through MailChannels.
+  To change the destination email or form behavior, update the constants and validation here.
+*/
+
 const TO_EMAIL = "glasserelliot@gmail.com";      
 const FROM_EMAIL = "contact-form@example.com";  
 
 export async function onRequestPost({ request }) {
   try {
+    // Read the submitted form values from the page and trim all whitespace before validation.
     const form = await request.formData();
 
     const firstName = (form.get("fname") || "").toString().trim();
@@ -15,6 +23,7 @@ export async function onRequestPost({ request }) {
       return json({ ok: false, error: "Please fill in every field." }, 400);
     }
 
+    // MailChannels payload: this formats the message and sets the sender/reply details.
     const payload = {
       personalizations: [{ to: [{ email: TO_EMAIL, name: "T-10 Robotics" }] }],
       from: { email: FROM_EMAIL, name: "T-10 Robotics website" },

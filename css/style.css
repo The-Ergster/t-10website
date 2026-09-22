@@ -1,4 +1,11 @@
 
+/*
+  Shared site styles for T-10 Robotics.
+
+  To change the brand look, update the CSS variables in :root. To edit a page section,
+  find the matching selector below (header, hero, panel, form, carousel, etc.) and adjust it here.
+*/
+
 :root {
   /* color */
   --navy: #0E1A2B;
@@ -67,6 +74,7 @@ img { max-width: 100%; display: block; }
   outline-offset: 3px;
 }
 
+/* ---------- header + navigation ---------- */
 .site-header {
   position: sticky;
   top: 0;
@@ -174,6 +182,7 @@ img { max-width: 100%; display: block; }
   .nav-links a[aria-current="page"] { border-left: 2px solid var(--yellow); padding-left: calc(var(--gutter) - 2px); }
 }
 
+/* ---------- hero + page banners ---------- */
 .hero {
   background: var(--navy);
   color: var(--white);
@@ -226,6 +235,7 @@ img { max-width: 100%; display: block; }
   .hero-figure { justify-self: start; max-width: 220px; }
 }
 
+/* ---------- buttons ---------- */
 .btn {
   display: inline-block;
   font-family: var(--font-body);
@@ -251,6 +261,7 @@ img { max-width: 100%; display: block; }
 }
 .btn-ghost:hover { border-color: var(--white); background: rgba(255,255,255,0.06); }
 
+/* ---------- content panels + grids ---------- */
 .section {
   padding: 4rem 0;
 }
@@ -416,6 +427,7 @@ img { max-width: 100%; display: block; }
   .member-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
+/* ---------- outreach + media cards ---------- */
 .event-card {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -463,6 +475,7 @@ img { max-width: 100%; display: block; }
 .video-caption .name { color: var(--white); font-weight: 600; }
 .video-caption .sub { font-family: var(--font-mono); font-size: 0.72rem; color: var(--steel); }
 
+/* ---------- contact form + location ---------- */
 .contact-grid {
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
@@ -536,6 +549,7 @@ textarea { min-height: 120px; resize: vertical; }
   padding: 0.5rem;
 }
 
+/* ---------- footer ---------- */
 .site-footer {
   background: var(--navy);
   color: var(--steel);
@@ -558,6 +572,7 @@ textarea { min-height: 120px; resize: vertical; }
 }
 
 /* ---------- image carousel ---------- */
+/* The carousel uses a manifest.json file in each outreach folder, so add or remove images there to change the slideshow. */
 .carousel {
   position: relative;
   width: 100%;

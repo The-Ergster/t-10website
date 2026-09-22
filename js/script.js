@@ -1,7 +1,14 @@
-/* T-10 Robotics — shared site behavior */
+/*
+  T-10 Robotics — shared site behavior
+
+  This file runs on every page. It controls the mobile menu, the footer year,
+  the fallback blocks for broken images, the contact form submission flow, and
+  the gallery carousels. If a change affects more than one page, edit here.
+*/
 
 document.addEventListener("DOMContentLoaded", () => {
   /* ---------- mobile nav toggle ---------- */
+  // The nav toggle is hidden on larger screens and used to show/hide links on mobile.
   const toggle = document.querySelector(".nav-toggle");
   const links = document.querySelector(".nav-links");
   if (toggle && links) {
@@ -11,10 +18,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // Set the current year in any element with data-year; useful for a dynamic footer label.
   const yearEl = document.querySelector("[data-year]");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-
+  // Replace broken image tags with a styled placeholder so the layout doesn't collapse.
   document.querySelectorAll("img").forEach((img) => {
     img.addEventListener("error", () => {
       if (img.dataset.fallbackApplied) return;
@@ -32,6 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  // Contact form behavior: validate fields, send to the Cloudflare function, and show status text.
   const form = document.querySelector("#contact-form");
   if (form) {
     form.addEventListener("submit", async (e) => {
@@ -72,12 +81,14 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  //Image Carousel
+  // Initialize every image carousel found on the page using a manifest.json in each image folder.
   document.querySelectorAll(".carousel").forEach((el) => initCarousel(el));
 });
 
 const CAROUSEL_INTERVAL_MS = 10000;
 
+// Build each carousel from a folder's manifest.json. Each image is loaded from the folder
+// and rotated automatically every 10 seconds unless the user hovers or clicks controls.
 async function initCarousel(el) {
   const folder = el.dataset.folder;
   if (!folder) return;
@@ -101,6 +112,7 @@ async function initCarousel(el) {
 }
 
 function buildCarousel(el, folder, files) {
+  // The carousel stores one image per slide and toggles the "active" class to crossfade between them.
   let index = 0;
   let timer = null;
 

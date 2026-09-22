@@ -1,4 +1,6 @@
 
+// Generate manifest.json files for each outreach image folder.
+// These manifests tell the site which image files exist in a gallery, so new photos can be added without editing HTML.
 const fs = require("fs");
 const path = require("path");
 

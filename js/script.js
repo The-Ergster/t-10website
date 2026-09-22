@@ -71,4 +71,70 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
+
+//Image Carousel 
+  document.querySelectorAll(".carousel").forEach((el) => initCarousel(el));
 });
+
+async function initCarousel(el) {
+  const folder = el.dataset.folder;
+  if (!folder) return;
+
+  let files;
+  try {
+    const res = await fetch(`${folder}/manifest.json`);
+    if (!res.ok) throw new Error("no manifest");
+    files = await res.json();
+  } catch {
+    el.innerHTML = `<div class="img-missing">no manifest.json in ${folder}</div>`;
+    return;
+  }
+
+  if (!files.length) {
+    el.innerHTML = `<div class="img-missing">no images in ${folder}</div>`;
+    return;
+  }
+
+  buildCarousel(el, folder, files);
+}
+
+function buildCarousel(el, folder, files) {
+  let index = 0;
+
+  el.innerHTML = `
+    <div class="carousel-track"></div>
+    ${files.length > 1 ? `
+      <button class="carousel-btn prev" aria-label="Previous image">&#8249;</button>
+      <button class="carousel-btn next" aria-label="Next image">&#8250;</button>
+      <div class="carousel-dots"></div>
+    ` : ""}
+  `;
+
+  const track = el.querySelector(".carousel-track");
+  const dotsWrap = el.querySelector(".carousel-dots");
+
+  const img = document.createElement("img");
+  img.alt = "";
+  track.appendChild(img);
+
+  const dots = files.map((_, i) => {
+    if (!dotsWrap) return null;
+    const dot = document.createElement("button");
+    dot.className = "carousel-dot";
+    dot.setAttribute("aria-label", `Go to image ${i + 1}`);
+    dot.addEventListener("click", () => show(i));
+    dotsWrap.appendChild(dot);
+    return dot;
+  });
+
+  function show(i) {
+    index = (i + files.length) % files.length;
+    img.src = `${folder}/${files[index]}`;
+    dots.forEach((d, di) => d && d.classList.toggle("active", di === index));
+  }
+
+  el.querySelector(".prev")?.addEventListener("click", () => show(index - 1));
+  el.querySelector(".next")?.addEventListener("click", () => show(index + 1));
+
+  show(0);
+}

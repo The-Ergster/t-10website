@@ -24,11 +24,10 @@ This is the website for the T-10 Robotics team. It is a simple static site built
 
 From the project root, run:
 
-```bash
-python3 -m http.server 8000
-```
-
-Then open:
+thingy for the thingy in the run menu in vs code
+just google it if you don't know
+you can also use a browser
+then open:
 
 ```text
 http://localhost:8000

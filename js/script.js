@@ -72,9 +72,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-//Image Carousel 
+  //Image Carousel
   document.querySelectorAll(".carousel").forEach((el) => initCarousel(el));
 });
+
+const CAROUSEL_INTERVAL_MS = 4000;
 
 async function initCarousel(el) {
   const folder = el.dataset.folder;
@@ -100,6 +102,7 @@ async function initCarousel(el) {
 
 function buildCarousel(el, folder, files) {
   let index = 0;
+  let timer = null;
 
   el.innerHTML = `
     <div class="carousel-track"></div>
@@ -113,28 +116,57 @@ function buildCarousel(el, folder, files) {
   const track = el.querySelector(".carousel-track");
   const dotsWrap = el.querySelector(".carousel-dots");
 
-  const img = document.createElement("img");
-  img.alt = "";
-  track.appendChild(img);
+  // preload one <img> per slide, stacked and crossfaded via CSS opacity
+  const imgs = files.map((file) => {
+    const img = document.createElement("img");
+    img.src = `${folder}/${file}`;
+    img.alt = "";
+    track.appendChild(img);
+    return img;
+  });
 
   const dots = files.map((_, i) => {
     if (!dotsWrap) return null;
     const dot = document.createElement("button");
     dot.className = "carousel-dot";
     dot.setAttribute("aria-label", `Go to image ${i + 1}`);
-    dot.addEventListener("click", () => show(i));
+    dot.addEventListener("click", () => {
+      show(i);
+      resetTimer();
+    });
     dotsWrap.appendChild(dot);
     return dot;
   });
 
   function show(i) {
     index = (i + files.length) % files.length;
-    img.src = `${folder}/${files[index]}`;
+    imgs.forEach((im, di) => im.classList.toggle("active", di === index));
     dots.forEach((d, di) => d && d.classList.toggle("active", di === index));
   }
 
-  el.querySelector(".prev")?.addEventListener("click", () => show(index - 1));
-  el.querySelector(".next")?.addEventListener("click", () => show(index + 1));
+  function startTimer() {
+    if (files.length <= 1) return;
+    timer = setInterval(() => show(index + 1), CAROUSEL_INTERVAL_MS);
+  }
+
+  function resetTimer() {
+    if (timer) clearInterval(timer);
+    startTimer();
+  }
+
+  el.querySelector(".prev")?.addEventListener("click", () => {
+    show(index - 1);
+    resetTimer();
+  });
+  el.querySelector(".next")?.addEventListener("click", () => {
+    show(index + 1);
+    resetTimer();
+  });
+
+  // pause on hover so people can actually read/look without it jumping mid-glance
+  el.addEventListener("mouseenter", () => timer && clearInterval(timer));
+  el.addEventListener("mouseleave", startTimer);
 
   show(0);
+  startTimer();
 }

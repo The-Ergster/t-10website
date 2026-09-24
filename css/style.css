@@ -15,8 +15,8 @@
   --ink: #14202E;
   --steel: #5C6B78;
   --steel-30: rgba(92, 107, 120, 0.35);
-  --yellow: #dee81d;
-  --yellow-dim: #c2b613;
+  --yellow: #8A6A00;
+  --yellow-dim: #6F5500;
   --white: #F7F9F8;
   --grid-line-dark: rgba(255, 255, 255, 0.055);
   --grid-line-light: rgba(14, 26, 43, 0.06);
@@ -569,7 +569,16 @@ textarea { min-height: 120px; resize: vertical; }
   flex-wrap: wrap;
   gap: 1rem;
 }
-.footer-inner a { color: var(--paper-2); }
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  color: var(--paper-2);
+}
+.social-link:hover {
+  color: var(--yellow);
+  text-decoration: none;
+}
+.social-icon { width: 1.4rem; height: 1.4rem; }
 .footer-brand { font-family: var(--font-mono); font-size: 0.8rem; }
 
 @keyframes gear-turn {

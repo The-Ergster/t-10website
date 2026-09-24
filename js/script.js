@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
           method: "POST",
           body: new FormData(form),
         });
-        const result = await res.json();
+        const result = await res.json().catch(() => ({}));
 
         if (res.ok && result.ok) {
           note.textContent = "Thanks — your message has been sent.";

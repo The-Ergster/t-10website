@@ -42,7 +42,10 @@ http://localhost:8000
 - `contact.html` — contact form page
 - `css/style.css` — shared styling
 - `js/script.js` — shared site behavior, nav toggle, form handling, and image carousels
-- `functions/api/contact.js` — server-side contact form endpoint
+- `worker.js` — Cloudflare Worker entrypoint for static assets and the contact API
+- `functions/api/contact.js` — contact form email handler
+- `wrangler.jsonc` — Worker and static asset configuration
+- `package.json` — Resend SDK and Wrangler dependencies
 - `images/` — site images and outreach media
 
 ## How to edit the site
@@ -76,9 +79,30 @@ If something is happening on every page, it is probably here.
 
 ## Contact form
 
-The contact form posts to the serverless endpoint in `functions/api/contact.js`.
+The site is deployed as a Cloudflare Worker with static assets. The Worker routes
+`POST /api/contact` to `functions/api/contact.js` and serves the HTML, CSS, JavaScript,
+and images through the asset binding. The handler sends mail through Resend.
 
-If you are testing the form locally, use a local hosting method that supports Cloudflare Pages functions, or deploy to your hosting environment and test there.
+In the Worker dashboard, configure these under **Settings -> Variables and secrets**:
+
+- `RESEND_API_KEY` — encrypted secret from Resend
+- `CONTACT_TO_EMAIL` — the inbox that should receive contact messages
+- `CONTACT_FROM_EMAIL` — a sender address on a domain verified in Resend, such as `website@t10robotics.org`
+
+Create a Resend account, verify the domain used by `CONTACT_FROM_EMAIL`, and create an API
+key with permission to send email. Store `RESEND_API_KEY` as an encrypted secret. Do not
+commit the API key to this repository. After saving the variables, redeploy the Worker; the
+form at `/contact.html` will send submissions to `CONTACT_TO_EMAIL`, and replies will go
+directly to the visitor's email address.
+
+For the Git deployment settings shown in the dashboard, use the repository root as the root
+directory, set the build command to `npm install`, and set the deploy command to:
+
+```text
+npx wrangler deploy
+```
+
+If you are testing the form locally, use `npx wrangler dev`, or deploy to Cloudflare and test there.
 
 ## Tips for future editors
 

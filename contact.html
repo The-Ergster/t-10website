@@ -40,7 +40,7 @@
     <div>
       <div class="hero-eyebrow">Reach us</div>
       <h1>Contact us</h1>
-      <p class="hero-lede">Still being developed</p>
+      <p class="hero-lede">Questions about T-10 Robotics? Send us a message.</p>
     </div>
   </div>
 </section>
@@ -66,14 +66,18 @@
             </div>
             <div class="field">
               <label for="email">Email</label>
-              <input type="email" id="email" name="email" required>
+              <input type="email" id="email" name="email" autocomplete="email" required>
             </div>
             <div class="field">
               <label for="comment">Comment</label>
               <textarea id="comment" name="comment" required></textarea>
             </div>
+            <div class="field" hidden aria-hidden="true">
+              <label for="website">Website</label>
+              <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+            </div>
             <button type="submit" class="btn btn-primary">Submit</button>
-            <p class="form-note"></p>
+            <p class="form-note" role="status" aria-live="polite"></p>
           </form>
         </div>
       </div>

@@ -1,51 +1,59 @@
 
 /*
-  Cloudflare Pages function for the website contact form.
+  Cloudflare Worker handler for the website contact form.
 
-  It reads the form fields, validates them, and sends the message through MailChannels.
-  To change the destination email or form behavior, update the constants and validation here.
+  It reads the form fields, validates them, and sends the message through Resend.
+  Configure RESEND_API_KEY, CONTACT_TO_EMAIL, and CONTACT_FROM_EMAIL in Cloudflare.
 */
 
-const TO_EMAIL = "glasserelliot@gmail.com";      
-const FROM_EMAIL = "contact-form@example.com";  
+import { Resend } from "resend";
 
-export async function onRequestPost({ request }) {
+export async function onRequestPost({ request, env }) {
   try {
-    // Read the submitted form values from the page and trim all whitespace before validation.
     const form = await request.formData();
 
     const firstName = (form.get("fname") || "").toString().trim();
     const lastName = (form.get("lname") || "").toString().trim();
     const email = (form.get("email") || "").toString().trim();
     const comment = (form.get("comment") || "").toString().trim();
+    const website = (form.get("website") || "").toString().trim();
+
+    if (website) {
+      return json({ ok: true });
+    }
 
     if (!firstName || !lastName || !email || !comment) {
       return json({ ok: false, error: "Please fill in every field." }, 400);
     }
 
-    // MailChannels payload: this formats the message and sets the sender/reply details.
-    const payload = {
-      personalizations: [{ to: [{ email: TO_EMAIL, name: "T-10 Robotics" }] }],
-      from: { email: FROM_EMAIL, name: "T-10 Robotics website" },
-      reply_to: { email, name: `${firstName} ${lastName}` },
-      subject: `Website contact form — ${firstName} ${lastName}`,
-      content: [
-        {
-          type: "text/plain",
-          value: `Name: ${firstName} ${lastName}\nEmail: ${email}\n\n${comment}`,
-        },
-      ],
-    };
+    if (!isEmail(email)) {
+      return json({ ok: false, error: "Please enter a valid email address." }, 400);
+    }
 
-    const mcRes = await fetch("https://api.mailchannels.net/tx/v1/send", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload),
+    if (firstName.length > 80 || lastName.length > 80 || email.length > 254 || comment.length > 5000) {
+      return json({ ok: false, error: "One or more fields are too long." }, 400);
+    }
+
+    const config = env || {};
+    const apiKey = config.RESEND_API_KEY;
+    const toEmail = config.CONTACT_TO_EMAIL;
+    const fromEmail = config.CONTACT_FROM_EMAIL;
+    if (!apiKey || !toEmail || !fromEmail) {
+      console.error("Contact form email configuration is missing.");
+      return json({ ok: false, error: "The contact form is not configured yet." }, 503);
+    }
+
+    const resend = new Resend(apiKey);
+    const { error } = await resend.emails.send({
+      from: `T-10 Robotics website <${fromEmail}>`,
+      to: [toEmail],
+      replyTo: email,
+      subject: `Website contact form — ${firstName} ${lastName}`,
+      html: `<p><strong>Name:</strong> ${escapeHtml(firstName)} ${escapeHtml(lastName)}</p><p><strong>Email:</strong> ${escapeHtml(email)}</p><p>${escapeHtml(comment).replace(/\n/g, "<br>")}</p>`,
     });
 
-    if (!mcRes.ok) {
-      const detail = await mcRes.text();
-      console.error("MailChannels error:", mcRes.status, detail);
+    if (error) {
+      console.error("Resend error:", error);
       return json({ ok: false, error: "The message could not be sent." }, 502);
     }
 
@@ -61,4 +69,18 @@ function json(body, status = 200) {
     status,
     headers: { "Content-Type": "application/json" },
   });
+}
+
+function isEmail(value) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+}
+
+function escapeHtml(value) {
+  return value.replace(/[&<>'"]/g, (character) => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    "'": "&#39;",
+    '"': "&quot;",
+  })[character]);
 }

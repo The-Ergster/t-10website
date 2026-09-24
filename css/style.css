@@ -346,8 +346,8 @@ img { max-width: 100%; display: block; }
   text-align: center;
 }
 .org-node img {
-  width: 88px;
-  height: 88px;
+  width: clamp(150px, 17vw, 220px);
+  height: clamp(150px, 17vw, 220px);
   object-fit: cover;
   border: 1px solid rgba(255,255,255,0.2);
   margin: 0 auto 0.6rem;
@@ -406,17 +406,22 @@ img { max-width: 100%; display: block; }
 }
 .member-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.6rem 1.2rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.8rem 1.4rem;
 }
-.member-card { text-align: center; }
-.member-card img {
+.member-card {
+  text-align: center;
+  max-width: 260px;
   width: 100%;
-  aspect-ratio: 1;
+  justify-self: center;
+}
+.member-card img {
+  width: min(100%, 240px);
+  aspect-ratio: 4 / 5;
   object-fit: cover;
   background: var(--navy-2);
   border: 1px solid rgba(255,255,255,0.15);
-  margin-bottom: 0.55rem;
+  margin: 0 auto 0.7rem;
 }
 .member-card .name { color: var(--white); font-size: 0.92rem; font-weight: 500; }
 
@@ -424,7 +429,8 @@ img { max-width: 100%; display: block; }
   .org-branch { flex-direction: column; gap: 2rem; }
   .org-branch::before { display: none; }
   .org-branch .org-node::before { display: none; }
-  .member-grid { grid-template-columns: repeat(2, 1fr); }
+  .member-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .member-card { max-width: none; }
 }
 
 /* ---------- outreach + media cards ---------- */

@@ -18,7 +18,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Set the current year in any element with data-year; useful for a dynamic footer label.
   const yearEl = document.querySelector("[data-year]");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
@@ -40,7 +39,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Contact form behavior: validate fields, send to the Cloudflare function, and show status text.
   const form = document.querySelector("#contact-form");
   if (form) {
     form.addEventListener("submit", async (e) => {

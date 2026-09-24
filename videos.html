@@ -45,23 +45,61 @@
   </div>
 </section>
 
-<!-- Video gallery: each card is an embedded YouTube video. Update the embed URL or add a new card here. -->
-<section class="section">
+<!-- Video gallery: each category has one featured video and room for future uploads. -->
+<section class="section video-stage">
   <div class="container">
-    <div class="grid-2">
+    <section class="video-category" aria-labelledby="hardware-videos">
+      <header class="video-section-header">
+        <span class="hero-eyebrow">01 / Hardware</span>
+        <h2 id="hardware-videos">Hardware videos</h2>
+      </header>
+      <div class="video-gallery">
+        <article class="video-card video-card-featured">
+          <div class="video-card-header">
+            <span class="video-number">01</span>
+            <h3>How to wire a robot</h3>
+          </div>
+          <div class="video-thumb">
+            <iframe src="https://www.youtube-nocookie.com/embed/xP5P-Pygaa0?si=EHje1exQshL-7fB6" title="How to wire a robot" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
+        </article>
 
-      <div class="video-card">
-        <div class="video-thumb">
-          <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/0U4clC43V00?si=ynpqGkw-uEJ5DWJg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-      
-        </div>
+        <article class="video-card video-card-secondary video-card-coming-soon">
+          <div class="video-card-header">
+            <span class="video-number">02</span>
+            <h3>Coming soon</h3>
+          </div>
+          <div class="video-placeholder" aria-hidden="true">Coming soon</div>
+        </article>
       </div>
+    </section>
 
-      <div class="video-card">
-        <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/xP5P-Pygaa0?si=EHje1exQshL-7fB6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <section class="video-category" aria-labelledby="software-videos">
+      <header class="video-section-header">
+        <span class="hero-eyebrow">02 / Software</span>
+        <h2 id="software-videos">Software videos</h2>
+      </header>
+      <div class="video-gallery">
+        <article class="video-card video-card-featured">
+          <div class="video-card-header">
+            <span class="video-number">01</span>
+            <h3>Software educational video</h3>
+          </div>
+          <div class="video-thumb">
+            <iframe src="https://www.youtube-nocookie.com/embed/0U4clC43V00?si=ynpqGkw-uEJ5DWJg" title="Software educational video" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
+        </article>
+
+        <article class="video-card video-card-secondary video-card-coming-soon">
+          <div class="video-card-header">
+            <span class="video-number">02</span>
+            <h3>Coming soon</h3>
+          </div>
+          <div class="video-placeholder" aria-hidden="true">Coming soon</div>
+        </article>
       </div>
+    </section>
 
-    </div>
   </div>
 </section>
 

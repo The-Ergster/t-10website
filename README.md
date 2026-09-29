@@ -7,6 +7,10 @@
 > figure out stuff<br>
 > If not, well uhhh, google
 
+
+
+# MAKE FILE SMALL BEFORE UPLOADING OR I WILL EXPLODE YOU!!!!
+
 ## T-10 Robotics Website
 
 This is the website for the T-10 Robotics team. It is a simple static site built with plain HTML, CSS, and JavaScript.

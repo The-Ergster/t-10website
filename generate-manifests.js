@@ -1,10 +1,11 @@
 
 // Generate manifest.json files for each outreach image folder.
 // These manifests tell the site which image files exist in a gallery, so new photos can be added without editing HTML.
-const fs = require("fs");
-const path = require("path");
+import fs from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 
-const ROOT = path.join(__dirname, "images", "outreach");
+const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "images", "outreach");
 const IMAGE_EXT = /\.(jpe?g|png|webp|gif)$/i;
 
 if (!fs.existsSync(ROOT)) {

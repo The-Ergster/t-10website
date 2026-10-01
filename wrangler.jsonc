@@ -17,6 +17,8 @@
     },
     "issue_detection": {
       "enabled"
+    }
+}
   "assets": {
     "directory": ".",
     "exclude": ["templates/**"],

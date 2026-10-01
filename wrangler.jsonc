@@ -16,9 +16,9 @@
       "persist": true
     },
     "issue_detection": {
-      "enabled"
+      "enabled": true
     }
-}
+  },
   "assets": {
     "directory": ".",
     "exclude": ["templates/**"],

@@ -1,11 +1,10 @@
 # T-10 Website
 
-> Hello people,<br>
-> I made this site<br>
-> I am probably long gone<br>
-> I made AI write a readme cause I'm too lazy to write and I don't know .md formatting<br>
-> figure out stuff<br>
-> If not, well uhhh, google
+Hello people,<br>
+I made this site<br>
+I made AI write a readme cause I'm too lazy to write and I don't know .md formatting<br>
+figure out stuff<br>
+If not, well uhhh, google
 
 
 

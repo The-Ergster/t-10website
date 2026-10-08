@@ -67,7 +67,7 @@ Example:
 ### Add a new page
 
 1. Copy `templates/page-template.html` into the project root and give it a new name, such as `events.html`.
-2. Change the `<title>`, hero eyebrow, heading, intro, and the content in the main section.
+2. Change the `<title>`, meta description, canonical URL, hero eyebrow, heading, intro, and the content in the main section. Give the page a unique, accurate title and description, and use its public clean URL for the canonical.
 3. Add images under `images/` if the page needs them. Use paths such as `images/events/photo.jpg`.
 4. Add the new page to the `nav-links` list in every root-level HTML page if it should appear in the navigation. Keep the link text and URL the same everywhere.
 5. Preview the new page locally, then deploy with the normal Cloudflare command.
@@ -123,7 +123,7 @@ For local Worker testing, use `npx wrangler dev`, or deploy to Cloudflare and te
 
 ### Search engine indexing
 
-After deploying, submit `https://t-10robotics.glasserelliot.workers.dev/sitemap.xml` as a sitemap in Google Search Console. Update `sitemap.xml` whenever you add or remove a published page.
+After deploying, submit `https://t10robotics.org/sitemap.xml` as a sitemap in Google Search Console. Update `sitemap.xml` whenever you add or remove a published page.
 
 ## Tips for future editors
 

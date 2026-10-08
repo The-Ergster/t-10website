@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://t-10robotics.glasserelliot.workers.dev/sitemap.xml
+Sitemap: https://t10robotics.org/sitemap.xml

@@ -45,6 +45,8 @@ http://localhost:8000
 - `js/script.js` — shared site behavior, nav toggle, form handling, and image carousels
 - `worker.js` — Cloudflare Worker entrypoint for static assets and the contact API
 - `functions/api/contact.js` — contact form email handler
+- `sitemap.xml` — URLs for the published pages, for search engine indexing
+- `robots.txt` — crawler rules and sitemap location
 - `wrangler.jsonc` — Worker and static asset configuration
 - `package.json` — Resend SDK and Wrangler dependencies
 - `images/` — site images and outreach media
@@ -118,6 +120,10 @@ npx wrangler deploy
 ```
 
 For local Worker testing, use `npx wrangler dev`, or deploy to Cloudflare and test there.
+
+### Search engine indexing
+
+After deploying, submit `https://t-10robotics.glasserelliot.workers.dev/sitemap.xml` as a sitemap in Google Search Console. Update `sitemap.xml` whenever you add or remove a published page.
 
 ## Tips for future editors
 

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://t-10robotics.glasserelliot.workers.dev/sitemap.xml

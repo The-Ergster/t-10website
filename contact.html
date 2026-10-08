@@ -51,45 +51,32 @@
     <div>
       <div class="hero-eyebrow">Reach us</div>
       <h1>Contact us</h1>
-      <p class="hero-lede">Questions about T-10 Robotics? Send us a message.</p>
+      <p class="hero-lede">Questions about T-10 Robotics? Reach out directly.</p>
     </div>
   </div>
 </section>
 
-<!-- Contact form + school location: the form posts to /api/contact and the map/address block is on the right. -->
 <section class="section">
   <div class="container">
     <div class="contact-grid">
 
       <div>
         <div class="panel">
-          <span class="panel-label">Send a message</span>
-          <form id="contact-form" method="POST" action="/api/contact" novalidate>
-            <div class="field-row">
-              <div class="field">
-                <label for="fname">First name</label>
-                <input type="text" id="fname" name="fname" required>
-              </div>
-              <div class="field">
-                <label for="lname">Last name</label>
-                <input type="text" id="lname" name="lname" required>
-              </div>
-            </div>
-            <div class="field">
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" autocomplete="email" required>
-            </div>
-            <div class="field">
-              <label for="comment">Comment</label>
-              <textarea id="comment" name="comment" required></textarea>
-            </div>
-            <div class="field" hidden aria-hidden="true">
-              <label for="website">Website</label>
-              <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-            <p class="form-note" role="status" aria-live="polite"></p>
-          </form>
+          <span class="panel-label">Email</span>
+          <ul class="roster-contact">
+            <li>
+              <span class="role">Advisor</span>
+              <span class="who"><a href="mailto:hans_batra@needham.k12.ma.us">Hans Batra</a></span>
+            </li>
+            <li>
+              <span class="role">Club President</span>
+              <span class="who"><a href="mailto:krm271@students.needham.k12.ma.us">Kiera</a></span>
+            </li>
+            <li>
+              <span class="role">T-10 Project Manager</span>
+              <span class="who"><a href="mailto:ro54@students.needham.k12.ma.us">Ron Ozeri</a></span>
+            </li>
+          </ul>
         </div>
       </div>
 
@@ -101,21 +88,6 @@
             title="Map to Needham High School"></iframe>
         </div>
         <p class="address">Needham High School<br>609 Webster St<br>Needham, MA 02494</p>
-
-        <ul class="roster-contact" style="margin-top:2rem;">
-          <li>
-            <span class="role">Advisor</span>
-            <span class="who">Mr. Batra</span>
-          </li>
-          <li>
-            <span class="role">Club President</span>
-            <span class="who">Kiera</span>
-          </li>
-          <li>
-            <span class="role">T-10 Project Manager</span>
-            <span class="who">Ron Ozeri</span>
-          </li>
-        </ul>
       </div>
 
     </div>

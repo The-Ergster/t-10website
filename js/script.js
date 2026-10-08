@@ -2,8 +2,8 @@
   T-10 Robotics — shared site behavior
 
   This file runs on every page. It controls the mobile menu, the footer year,
-  the fallback blocks for broken images, the contact form submission flow, and
-  the gallery carousels. If a change affects more than one page, edit here.
+  the fallback blocks for broken images, and the gallery carousels. If a change
+  affects more than one page, edit here.
 */
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -38,46 +38,6 @@ document.addEventListener("DOMContentLoaded", () => {
       img.replaceWith(box);
     });
   });
-
-  const form = document.querySelector("#contact-form");
-  if (form) {
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
-      const note = form.querySelector(".form-note");
-      const button = form.querySelector('button[type="submit"]');
-
-      if (!form.checkValidity()) {
-        form.reportValidity();
-        return;
-      }
-
-      button.disabled = true;
-      note.classList.remove("success", "error");
-      note.textContent = "Sending…";
-
-      try {
-        const res = await fetch(form.action, {
-          method: "POST",
-          body: new FormData(form),
-        });
-        const result = await res.json().catch(() => ({}));
-
-        if (res.ok && result.ok) {
-          note.textContent = "Thanks — your message has been sent.";
-          note.classList.add("success");
-          form.reset();
-        } else {
-          note.textContent = result.error || "Something went wrong. Please try again.";
-          note.classList.add("error");
-        }
-      } catch (err) {
-        note.textContent = "Something went wrong. Please try again.";
-        note.classList.add("error");
-      } finally {
-        button.disabled = false;
-      }
-    });
-  }
 
   // Initialize every image carousel found on the page using a manifest.json in each image folder.
   document.querySelectorAll(".carousel").forEach((el) => initCarousel(el));

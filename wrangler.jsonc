@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "t-10website",
+  "name": "t-10robotics",
   "main": "worker.js",
   "compatibility_date": "2026-09-24",
   "observability": {
@@ -14,15 +14,13 @@
       "enabled": true,
       "head_sampling_rate": 1,
       "persist": true
-    },
-    "issue_detection": {
-      "enabled": true
     }
   },
   "assets": {
     "directory": ".",
     "binding": "ASSETS",
-    "exclude": ["templates/**"],
     "run_worker_first": ["/api/*"]
-  }
+  },
+  "workers_dev": true,
+  "preview_urls": true
 }

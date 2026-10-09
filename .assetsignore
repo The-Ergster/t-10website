@@ -1,5 +1,6 @@
 .git
 .wrangler
 node_modules
+/templates/
 generate-manifests.js
 wrangler.jsonc

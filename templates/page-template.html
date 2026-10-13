@@ -1,39 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!--
+  UTF-8 makes sure the browser can read characters like em dashes and apostrophes correctly.
+-->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- The title shows in the browser tab and is the main name search engines use for this page. -->
 <title>Page title — T-10 Robotics</title>
 <meta name="description" content="Short description of this T-10 Robotics page.">
+<!-- The canonical URL tells search engines which page is the official version when duplicates exist. -->
+<link rel="canonical" href="https://t10robotics.org/page-slug">
+<!-- Open Graph tags control how the page is shown when it is shared in apps like Slack, Discord, and Facebook. -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Page title — T-10 Robotics">
+<meta property="og:description" content="Short description of this T-10 Robotics page.">
+<meta property="og:url" content="https://t10robotics.org/page-slug">
+<meta property="og:image" content="https://t10robotics.org/images/logo.png">
+<meta property="og:site_name" content="T-10 Robotics">
+<!-- Twitter/X card tags do the same thing for Twitter-style previews. -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Page title — T-10 Robotics">
+<meta name="twitter:description" content="Short description of this T-10 Robotics page.">
+<meta name="twitter:image" content="https://t10robotics.org/images/logo.png">
+<!-- These favicon links add the small icon that appears in browser tabs, bookmarks, and mobile home screens. -->
 <link rel="icon" href="images/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="images/favicon-180.png">
+<!-- These font links load the site’s typography so headings and body text use the team’s chosen typefaces. -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<!-- This stylesheet contains the site-wide layout, colors, spacing, and responsive rules. -->
 <link rel="stylesheet" href="css/style.css">
-<!-- Google tag (gtag.js) -->
+<!-- JSON-LD is structured data that helps search engines understand the organization and its details. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "T-10 Robotics",
+  "url": "https://t10robotics.org/",
+  "logo": "https://t10robotics.org/images/logo.png",
+  "sameAs": [
+    "https://www.instagram.com/t10_robotics/"
+  ],
+  "description": "Needham High School FIRST Tech Challenge team focused on STEM education, robotics, outreach, and student leadership."
+}
+</script>
+<!-- This script loads the Google Analytics tag so page visits can be tracked in Google Analytics. -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-9NQY359QL0"></script>
 <script>
+  // This is the array where analytics events are queued before they are sent to Google.
   window.dataLayer = window.dataLayer || [];
+  // gtag() pushes an event into the data layer so Google Analytics can process it.
   function gtag(){dataLayer.push(arguments);}
+  // This initializes the analytics library with the current time.
   gtag('js', new Date());
-
+  // This tells Google Analytics which property ID to use for this site.
   gtag('config', 'G-9NQY359QL0');
 </script>
 </head>
 <body>
 
+<!--
+  The header sits at the top of every page and gives visitors the main navigation.
+-->
 <!-- Add this page to the nav-links list in every root-level page when it is ready to publish. -->
 <header class="site-header">
+  <!-- This wrapper contains the logo, menu button, and navigation links in one block. -->
   <nav class="nav">
+    <!-- The logo links back to the home page and shows the team name beside the icon. -->
     <a href="/" class="brand">
       <img src="images/logo.png" alt="T-10 Robotics logo" class="brand-mark">
       T-10 Robotics
     </a>
+    <!-- This is the mobile menu button; tapping it opens and closes the nav on smaller screens. -->
     <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
+    <!-- This list holds the main links to the site’s top-level pages. -->
     <ul class="nav-links">
       <li><a href="/">Home</a></li>
       <li><a href="team.html">Our team</a></li>
@@ -44,34 +89,51 @@
   </nav>
 </header>
 
+<!--
+  This hero section is the page’s top headline area, usually with a category label and one main title.
+-->
 <!-- Replace the eyebrow, heading, and intro with this page's information. -->
 <section class="hero hero-compact">
   <div class="hero-inner">
     <div>
+      <!-- The eyebrow is a short label that tells the reader what kind of page this is. -->
       <div class="hero-eyebrow">Page category</div>
+      <!-- h1 is the main page heading that appears most prominently on the page. -->
       <h1>Page title</h1>
+      <!-- This paragraph is the short intro line under the title. -->
       <p class="hero-lede">A short sentence introducing this page.</p>
     </div>
   </div>
 </section>
 
+<!--
+  This is a normal content section with a heading and a card-like content block.
+-->
 <!-- Replace this example section with the page's content. Copy panels or grid items as needed. -->
 <section class="section">
   <div class="container">
+    <!-- h2 is the section heading; the paragraph below it provides a bit of extra context. -->
     <div class="section-head">
       <h2>Section heading</h2>
       <p>Optional supporting text for this section.</p>
     </div>
+    <!-- This panel is the box where the actual section content goes. -->
     <div class="panel">
       <p>Replace this text with the content for the new page.</p>
     </div>
   </div>
 </section>
 
+<!--
+  The footer is the bottom area of the site, used for branding and a final quick link.
+-->
 <footer class="site-footer">
   <div class="container footer-inner">
+    <!-- This text is the team name and school info shown in the footer. -->
     <span class="footer-brand">T-10 ROBOTICS · NEEDHAM HIGH SCHOOL · EST. FTC PROGRAM</span>
+    <!-- This link opens the team Instagram in a new tab. -->
     <a class="social-link" href="https://www.instagram.com/t10_robotics/" target="_blank" rel="noopener" aria-label="Instagram">
+      <!-- The SVG draws the Instagram icon directly in the page instead of loading a separate image file. -->
       <svg class="social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
         <rect x="3" y="3" width="18" height="18" rx="5"></rect>
         <circle cx="12" cy="12" r="4"></circle>
@@ -81,6 +143,9 @@
   </div>
 </footer>
 
+<!--
+  This script file adds the site’s interactive behavior, like the mobile menu and other front-end logic.
+-->
 <script src="js/script.js"></script>
 </body>
 </html>

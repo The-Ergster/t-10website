@@ -695,6 +695,11 @@ textarea { min-height: 120px; resize: vertical; }
   flex-wrap: wrap;
   gap: 1rem;
 }
+.footer-social-links {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
 .social-link {
   display: inline-flex;
   align-items: center;

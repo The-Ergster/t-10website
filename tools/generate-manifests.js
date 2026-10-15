@@ -13,6 +13,8 @@ if (!fs.existsSync(ROOT)) {
   process.exit(0);
 }
 
+const galleries = {};
+
 fs.readdirSync(ROOT, { withFileTypes: true })
   .filter((entry) => entry.isDirectory())
   .forEach((entry) => {
@@ -22,9 +24,15 @@ fs.readdirSync(ROOT, { withFileTypes: true })
       .filter((f) => IMAGE_EXT.test(f))
       .sort();
 
+    galleries[entry.name] = files;
     fs.writeFileSync(
       path.join(folder, "manifest.json"),
       JSON.stringify(files, null, 2)
     );
     console.log(`${entry.name}: ${files.length} image(s)`);
   });
+
+fs.writeFileSync(
+  path.join(ROOT, "..", "..", "js", "gallery-manifests.js"),
+  `window.GALLERY_MANIFESTS = ${JSON.stringify(galleries)};\n`
+);

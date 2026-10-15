@@ -49,14 +49,8 @@ const CAROUSEL_INTERVAL_MS = 10000;
 // and rotated automatically every 10 seconds unless the user hovers or clicks controls.
 async function initCarousel(el) {
   const folder = el.dataset.folder;
-  if (!folder) return;
-
-  let files;
-  try {
-    const res = await fetch(`${folder}/manifest.json`);
-    if (!res.ok) throw new Error("no manifest");
-    files = await res.json();
-  } catch {
+  const files = window.GALLERY_MANIFESTS?.[el.dataset.gallery];
+  if (!folder || !Array.isArray(files)) {
     el.innerHTML = `<div class="img-missing">no manifest.json in ${folder}</div>`;
     return;
   }

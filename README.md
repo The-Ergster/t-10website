@@ -55,7 +55,7 @@ When creating a new page:
 2. Copy its structure into a new page file under `pages/`.
 3. Replace the title, meta description, nav content, hero copy, and section content.
 4. Add the new page to the main navigation if it should be publicly linked.
-5. Use the existing root URLs in page markup (for example, `/css/style.css`, `/js/script.js`, and `/images/logo.png`). The Worker maps these URLs to files under `assets/`.
+5. Use paths relative to the HTML file (for example, `../assets/css/style.css`, `../assets/js/script.js`, and `../assets/images/logo.png` from a page under `pages/`). This keeps pages usable from both `file://` and Cloudflare.
 
 ### 3. Keep shared styling in one place
 
@@ -101,17 +101,11 @@ Regenerate every outreach manifest after adding or removing gallery images:
 node tools/generate-manifests.js
 ```
 
-## Local preview
+## Open locally
 
-From the project root, run the Worker locally so the existing page and asset URLs resolve through the same aliases used in deployment:
+Open `index.html` directly in a browser, or use its full `file://` path. The pages, styles, scripts, images, and galleries use local relative paths and do not need a server or Wrangler.
 
-```bash
-npx wrangler dev
-```
-
-Open the local URL printed by Wrangler. The Worker skips HTTPS redirection for localhost only.
-
-The preview checks page layout, navigation, assets, and galleries before publishing.
+The Cloudflare Worker handles requests only after deployment; do not use Wrangler for local preview or in GitHub Actions.
 
 ## Deployment
 
@@ -127,9 +121,9 @@ A typical edit cycle looks like this:
 2. Update the text or structure for the content you want to change.
 3. If the change is design-related, edit `assets/css/style.css`.
 4. If the change affects shared interactions, edit `assets/js/script.js`.
-5. Run a local preview with `npx wrangler dev`.
+5. Open `index.html` directly in a browser and check links, images, and galleries.
 6. Check that links, images, and carousels still work.
-7. Publish through the Cloudflare project workflow when the update is ready.
+7. Publish through the Cloudflare project workflow when the update is ready. Wrangler runs on Cloudflare only.
 
 ## Notes and caution
 
@@ -144,7 +138,7 @@ A typical edit cycle looks like this:
 - Shared styles: `assets/css/style.css`
 - Shared logic: `assets/js/script.js`
 - Images and galleries: `assets/images/`
-- Local preview command: `npx wrangler dev`
+- Local preview: open `index.html` directly (`file://`)
 - Deploy flow: publish through the Cloudflare project, not from the repo root
 
 in worst worst case scenario or permissions problems you can reach out to me at Erg95@students.needham.k12.ma.us

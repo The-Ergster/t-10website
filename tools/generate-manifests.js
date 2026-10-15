@@ -5,7 +5,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
-const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "images", "outreach");
+const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..", "assets", "images", "outreach");
 const IMAGE_EXT = /\.(jpe?g|png|webp|gif)$/i;
 
 if (!fs.existsSync(ROOT)) {

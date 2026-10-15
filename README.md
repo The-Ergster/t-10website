@@ -1,14 +1,14 @@
 # T-10 Robotics Website
 
-This is the website for the T-10 Robotics team at Needham High School.
-Made with AI cause I was too lazy to do it
-blame your software manager not me
-unless it is me
-anyway
-try and fix stuff
-don't mess with cloudflare stuff unless needed
-check example page for more info
-comments are everywhere
+- This is the website for the T-10 Robotics team at Needham High School.
+- Made with AI cause I was too lazy to do it
+- blame your software manager not me
+- unless it is me
+- anyway
+- try and fix stuff
+- don't mess with cloudflare stuff unless needed
+- check example page for more info
+- comments are everywhere
 
 
 ## Project structure
